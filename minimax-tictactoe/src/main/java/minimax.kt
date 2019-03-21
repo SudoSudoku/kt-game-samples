@@ -64,7 +64,7 @@ fun resolveState(board: MutableList<MutableList<Char>>, player: Players): GameSt
     return GameState.TIE
 }
 
-fun resolveBestMove(board: MutableList<MutableList<Char>>, isHuman: Boolean = false, depth: Int = 1): Move {
+fun resolveBestMove(board: MutableList<MutableList<Char>>, isHuman: Boolean = false, depth: Int = 0): Move {
     val player = if (isHuman) Players.PLAYER else Players.COMPUTER
     val state = resolveState(board, player)
 
@@ -108,7 +108,7 @@ fun printBoard(board: MutableList<MutableList<Char>>) {
         }
         print("\n")
         if (i != 2) {
-            for (j in 0..5) {
+            for (j in 0..4) {
                 print("-")
             }
             print("\n")
