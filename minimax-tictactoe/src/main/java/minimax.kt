@@ -98,25 +98,9 @@ fun isGameFinished(board: MutableList<MutableList<Char>>): Boolean =
         resolveState(board, Players.COMPUTER) == GameState.WIN ||
         !isMoveLeft(board)
 
-fun printBoard(board: MutableList<MutableList<Char>>) {
-    for (i in 0..2) {
-        for (j in 0..2) {
-            print(board[i][j])
-            if (j != 2) {
-                print("|")
-            }
-        }
-        print("\n")
-        if (i != 2) {
-            for (j in 0..4) {
-                print("-")
-            }
-            print("\n")
-        }
-    }
-}
-
 fun main() {
+    printHeader()
+
     val board = MutableList(3) { _ -> MutableList(3) { _ -> Players.EMPTY.character } }
 
     while (!isGameFinished(board)) {
@@ -148,5 +132,33 @@ fun main() {
             print("== You lose! ==\n")
         }
         else -> print("== Tie! ==")
+    }
+}
+
+fun printHeader() {
+    print("\n")
+    print("=   TIC TAC TOE    =\n")
+    print("\n")
+}
+
+fun printBoard(board: MutableList<MutableList<Char>>) {
+    for (i in 0..2) {
+        for (j in 0..2) {
+            print(board[i][j])
+            if (j != 2) {
+                print("|")
+            }
+        }
+        print("\n")
+        if (i != 2) {
+            for (j in 0..4) {
+                if ((j + 1) % 2 == 0) {
+                    print("+")
+                } else {
+                    print("-")
+                }
+            }
+            print("\n")
+        }
     }
 }
