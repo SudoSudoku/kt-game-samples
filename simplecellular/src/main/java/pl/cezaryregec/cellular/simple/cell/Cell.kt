@@ -26,12 +26,8 @@ class Board(val size: Int = 10) {
         for (cellIndex in 0..(board.size - 1)) {
             val currentCell = board[cellIndex]
             var resultType = CellType.DEAD
-            var livingNeighborsCount = countNeighbors(CellType.LIVING, cellIndex)
+            val livingNeighborsCount = countNeighbors(CellType.LIVING, cellIndex)
             val isAlive = currentCell.cellType == CellType.LIVING
-
-            if (isAlive) {
-                livingNeighborsCount -= 1
-            }
 
             val isBorn = livingNeighborsCount == 2
 
@@ -59,6 +55,11 @@ class Board(val size: Int = 10) {
                 }
             }
         }
+
+        if (board[cellIndex].cellType == cellType) {
+            result -= 1
+        }
+
         return result
     }
 }

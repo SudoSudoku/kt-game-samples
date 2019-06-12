@@ -11,11 +11,18 @@ fun main() {
     println("Update interval: ")
     val interval = readLine()!!.toLong()
 
+    println("Living cell count: ")
+    val livingCells = readLine()!!.toInt()
+
     val board = Board(size)
     val boardPrinter = BoardPrinter()
-    for (i in 0..size) {
-        val randomx = (0..(size-1)).random()
-        val randomy = (0..(size-1)).random()
+    for (i in 0..livingCells) {
+        var randomx = (0..(size-1)).random()
+        var randomy = (0..(size-1)).random()
+        while (board.getBoard()[randomy][randomx].cellType == CellType.LIVING) {
+            randomx = (0..(size-1)).random()
+            randomy = (0..(size-1)).random()
+        }
         board.set(randomx, randomy, CellType.LIVING)
     }
 
