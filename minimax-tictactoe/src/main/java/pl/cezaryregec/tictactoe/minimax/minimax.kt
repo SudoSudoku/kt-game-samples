@@ -1,3 +1,5 @@
+package pl.cezaryregec.tictactoe.minimax
+
 enum class GameState(val score: Int = 0) {
     TIE,
     WIN(100),
@@ -107,7 +109,7 @@ fun main() {
         printBoard(board)
         print("\n")
         print("Place " + Players.PLAYER.character + " on: (x, y) ")
-        val (x, y) = readLine()!!.replace(" ", "")
+        val (y, x) = readLine()!!.replace(" ", "")
                 .split(',')
                 .map { element -> element.toInt() }
 
