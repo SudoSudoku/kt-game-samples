@@ -8,6 +8,7 @@
     <modules>
         <module>minimax-tictactoe</module>
         <module>gameoflife</module>
+        <module>simple-cellular</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
