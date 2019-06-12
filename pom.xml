@@ -9,6 +9,7 @@
         <module>minimax-tictactoe</module>
         <module>gameoflife</module>
         <module>simplecellular</module>
+        <module>burningforest</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
